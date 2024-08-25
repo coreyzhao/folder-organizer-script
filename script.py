@@ -47,7 +47,9 @@ class DownloadHandler(FileSystemEventHandler):
     def extract_course_code_from_filename(self, file_path):
         file_name = os.path.basename(file_path).lower().replace(' ', '')
         
-        
+        for course_code in COURSE_CODES:
+            if course_code.lower().replace(' ', '') in file_name:
+                return course_code
         
         return None
 
