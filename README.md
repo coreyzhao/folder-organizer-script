@@ -1,4 +1,4 @@
-# Download Organizer
+# Downloads Folder Organizer
 
 Python script for macOS that automatically organizes downloaded files into folders based on course codes. 
 
