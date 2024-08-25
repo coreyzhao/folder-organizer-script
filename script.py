@@ -6,6 +6,7 @@ from watchdog.events import FileSystemEventHandler
 
 DOWNLOADS_FOLDER = os.path.expanduser("~/Downloads")
 DESTINATION_FOLDER = "/Users/coreyzhao/Desktop/mcgill"
+UNKNOWN_DESTINATION_FOLDER = "/Users/coreyzhao/Downloads"
 
 COURSE_CODES = ['comp206', 'comp250', 'comp302', 'math240', 'phys181', 'comp251', 'comp273', 'math208', 'math324']
 
@@ -38,7 +39,11 @@ class DownloadHandler(FileSystemEventHandler):
         course_code = self.extract_course_code_from_filename(file_path)
         course_code = course_code if course_code else "Unsorted"
         
-        target_folder = os.path.join(DESTINATION_FOLDER, course_code)
+        if course_code != "Unsorted":
+            target_folder = os.path.join(DESTINATION_FOLDER, course_code)
+        else:
+            target_folder = os.path.join(UNKNOWN_DESTINATION_FOLDER, course_code)
+            
         os.makedirs(target_folder, exist_ok=True)
 
         new_file_path = os.path.join(target_folder, os.path.basename(file_path))
