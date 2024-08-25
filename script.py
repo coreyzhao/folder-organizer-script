@@ -7,7 +7,7 @@ from watchdog.events import FileSystemEventHandler
 DOWNLOADS_FOLDER = os.path.expanduser("~/Downloads")
 DESTINATION_FOLDER = "/Users/coreyzhao/Desktop/mcgill"
 
-COURSE_CODES = ['comp206', 'comp250', 'comp302', 'math240', 'phys101']
+COURSE_CODES = ['comp206', 'comp250', 'comp302', 'math240', 'phys181', 'comp251', 'comp273', 'math208', 'math324']
 
 class DownloadHandler(FileSystemEventHandler):
     def on_created(self, event):
