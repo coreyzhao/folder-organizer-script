@@ -42,7 +42,7 @@ class DownloadHandler(FileSystemEventHandler):
         if course_code != "Unsorted":
             target_folder = os.path.join(DESTINATION_FOLDER, course_code)
         else:
-            target_folder = os.path.join(UNKNOWN_DESTINATION_FOLDER, course_code)
+            target_folder = os.path.join(UNKNOWN_DESTINATION_FOLDER)
             
         os.makedirs(target_folder, exist_ok=True)
 
